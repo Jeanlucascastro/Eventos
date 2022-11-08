@@ -6,6 +6,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +23,9 @@ public class Topico implements Serializable {
     @Getter @Setter private String localizacao;
     @Getter @Setter private String comoObservar;
 
+    @OneToMany(mappedBy = "topico")
+    @Getter private List<Comentario> comentarios = new ArrayList<>();
+
     public Topico() {
 
     }
@@ -32,6 +37,7 @@ public class Topico implements Serializable {
         this.conteudo = conteudo;
         this.localizacao = localizacao;
         this.comoObservar = comoObservar;
+//        this.comentarios = comentarios;
     }
 
     @Override
