@@ -1,5 +1,6 @@
 package com.gedal.eventos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class Comentario implements Serializable {
     @Getter @Setter private String conteudo;
     @Getter @Setter private Instant momento;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "topico_id")
     @Getter @Setter Topico topico;

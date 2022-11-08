@@ -22,4 +22,8 @@ public class TopicoService {
         Optional<Topico> obj = topicoRepository.findById(id);
         return obj.get();
     }
+
+    public Topico insert(Topico topico){
+        return topicoRepository.save(topico);
+    }
 }
